@@ -1,0 +1,14 @@
+---
+apiVersion: integreatly.org/v1alpha1
+kind: Grafana
+metadata:
+  name: adoption-profiling
+spec:
+  config: {}
+  dataStorage:
+    class: gp3-csi
+    accessModes:
+    - ReadWriteOnce
+    size: 2
+  ingress:
+    enabled: true

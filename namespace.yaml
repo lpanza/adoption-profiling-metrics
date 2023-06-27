@@ -1,0 +1,9 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  annotations:
+    openshift.io/description: Used for the Grafana instance for the Adoption Profiling
+      Journey
+    openshift.io/display-name: Adoption Profiling Project
+  name: adoption-profiling
