@@ -4,6 +4,9 @@ kind: GrafanaDatasource
 metadata:
   name: prometheus-grafanadatasource
 spec:
+  instanceSelector:
+    matchLabels:
+      dashboards: adoption-profiling
   datasources:
   - access: proxy
     editable: true
