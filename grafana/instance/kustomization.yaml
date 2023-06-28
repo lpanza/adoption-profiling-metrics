@@ -10,3 +10,4 @@ resources:
 - namespace.yaml
 - clusterRoleBinding.yaml
 - grafana.yaml
+- grafanaDataSource.yaml
