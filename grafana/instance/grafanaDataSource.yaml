@@ -4,11 +4,6 @@ kind: GrafanaDatasource
 metadata:
   name: prometheus-grafanadatasource
 spec:
-  valuesFrom:
-  - valueFrom:
-    secretKeyRef:
-      name:
-      key: token
   instanceSelector:
     matchLabels:
       dashboards: adoption-profiling
