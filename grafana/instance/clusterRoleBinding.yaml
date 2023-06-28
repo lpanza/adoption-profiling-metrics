@@ -9,5 +9,5 @@ roleRef:
   name: cluster-monitoring-view
 subjects:
 - kind: ServiceAccount
-  name: grafana-serviceaccount
+  name: adoption-profiling-sa
   namespace: adoption-profiling
