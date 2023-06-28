@@ -11,3 +11,4 @@ resources:
 - clusterRoleBinding.yaml
 - grafana.yaml
 - grafanaDataSource.yaml
+- grafanaDashboard.yaml
