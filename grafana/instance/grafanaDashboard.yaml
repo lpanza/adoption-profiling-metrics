@@ -150,7 +150,7 @@ spec:
                 "uid": "${DS_PROMETHEUS}"
               },
               "editorMode": "code",
-              "expr": "cluster:node_cpu:ratio_rate5m{cluster=\"\"}",
+              "expr": "cluster:node_cpu:ratio_rate5m{cluster=\"\"} * 100",
               "legendFormat": "Cluster CPU Utilization",
               "range": true,
               "refId": "A"
