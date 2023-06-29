@@ -1488,7 +1488,8 @@ spec:
                     "value": 80
                   }
                 ]
-              }
+              },
+              "unit": "s"
             },
             "overrides": []
           },
@@ -1766,7 +1767,8 @@ spec:
                     "value": 80
                   }
                 ]
-              }
+              },
+              "unit": "s"
             },
             "overrides": []
           },
