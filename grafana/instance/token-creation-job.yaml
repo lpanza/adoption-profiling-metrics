@@ -16,6 +16,15 @@ spec:
         command:
         - /bin/bash
         - -c
-        - oc 
+        - |
+          oc apply -f - <<EOF
+          apiVersion: v1
+          kind: Secret
+          metadata:
+            annotations:
+              kubernetes.io/service-account.name: token-creator
+            name: token-creator
+          type: kubernetes.io/service-account-token
+          EOF
         name: create-sa-token
 
