@@ -8,6 +8,7 @@ commonLabels:
 
 commonAnnotations:
   argocd.argoproj.io/sync-wave: "100"
+  argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
 
 resources:
 - namespace.yaml
