@@ -5,7 +5,8 @@ metadata:
   name: prometheus-grafanadatasource
 spec:
   valuesFrom:
-  - valueFrom:
+  - targetPath: "secureJsonData.httpHeaderValue1"
+    valueFrom:
       secretKeyRef:
         name: adoption-profiling-sa
         key: token
