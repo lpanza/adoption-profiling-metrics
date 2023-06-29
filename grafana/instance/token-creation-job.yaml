@@ -9,10 +9,13 @@ spec:
   template:
     spec:
       restartPolicy: OnFailure
+      serviceAccount: token-creator
+      serviceAccountName: token-creator
       containers:
       - image: image-registry.openshift-image-registry.svc:5000/openshift/cli:latest
         command:
         - /bin/bash
         - -c
-        - oc get nodes
+        - oc 
         name: create-sa-token
+
