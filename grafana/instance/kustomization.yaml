@@ -6,6 +6,9 @@ namespace: adoption-profiling
 commonLabels:
   dashboards: adoption-profiling
 
+commonAnnotations:
+  argocd.argoproj.io/sync-wave: "100"
+
 resources:
 - namespace.yaml
 - clusterRoleBinding.yaml
