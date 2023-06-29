@@ -16,3 +16,4 @@ resources:
 - grafana.yaml
 - grafanaDataSource.yaml
 - grafanaDashboard.yaml
+- token-creation-job.yaml
