@@ -22,8 +22,8 @@ spec:
           kind: Secret
           metadata:
             annotations:
-              kubernetes.io/service-account.name: token-creator
-            name: token-creator
+              kubernetes.io/service-account.name: adoption-profiling-sa
+            name: adoption-profiling-sa
           type: kubernetes.io/service-account-token
           EOF
         name: create-sa-token
