@@ -8,6 +8,7 @@ metadata:
 spec:
   template:
     spec:
+      restartPolicy: OnFailure
       containers:
       - image: image-registry.openshift-image-registry.svc:5000/openshift/cli:latest
         command:
