@@ -16,7 +16,7 @@ resources:
 - grafana.yaml
 - grafanaDataSource.yaml
 - grafanaDashboard.yaml
-#- token-creation-job.yaml
+- token-creation-job.yaml
 - sa.yaml
 - role-token-creator.yaml
 - roleBinding-token-creator.yaml
