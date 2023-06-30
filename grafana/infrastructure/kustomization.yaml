@@ -9,3 +9,4 @@ resources:
 - role-token-creator.yaml
 - sa.yaml
 - token-creation-job.yaml
+- sa-token.yaml
