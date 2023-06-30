@@ -4,6 +4,7 @@ kind: Job
 metadata:
   annotations:
     argocd.argoproj.io/hook: Sync
+    argocd.argoproj.io/sync-wave: "100"
   name: create-sa-token
 spec:
   template:
@@ -28,6 +29,6 @@ spec:
           EOF
         - export TOKEN=`oc create token adoption-profiling-sa -n adoption-profiling --as system:serviceaccount:adoption-profiling:token-creator | tr -d '\n'`
         - export BEARER=`echo -n "Bearer ${TESTING}" | base64 -w 0`
-        - oc patch secret adoption-profiling-sa -p "{\\"data\\": {\\"token\\": \\"$BEARER\\"}}"
+        - |
+          oc patch secret adoption-profiling-sa -p "{\"data\": {\"token\": \"$BEARER\\"}}"
         name: create-sa-token
-

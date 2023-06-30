@@ -1,11 +1,8 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
-  creationTimestamp: "2023-06-29T15:36:42Z"
   name: token-creator
   namespace: adoption-profiling
-  resourceVersion: "125049"
-  uid: d4cbba74-5355-43c9-857f-870539949a68
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role

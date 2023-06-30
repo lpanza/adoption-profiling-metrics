@@ -11,12 +11,7 @@ commonAnnotations:
   argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
 
 resources:
-- namespace.yaml
 - clusterRoleBinding.yaml
-- grafana.yaml
-- grafanaDataSource.yaml
 - grafanaDashboard.yaml
-#- token-creation-job.yaml
-- sa.yaml
-- role-token-creator.yaml
-- roleBinding-token-creator.yaml
+- grafanaDataSource.yaml
+- grafana.yaml
