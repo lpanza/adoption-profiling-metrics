@@ -19,7 +19,16 @@ spec:
         args:
         - -c
         - >-
-            oc apply -f - <<EOF
+            #oc apply -f - <<EOF
+            #apiVersion: v1
+            #kind: Secret
+            #metadata:
+            #  annotations:
+            #    kubernetes.io/service-account.name: adoption-profiling-sa
+            #  name: adoption-profiling-sa
+            #type: kubernetes.io/service-account-token
+            #EOF &&
+            cat <<EOT
             apiVersion: v1
             kind: Secret
             metadata:
@@ -27,7 +36,7 @@ spec:
                 kubernetes.io/service-account.name: adoption-profiling-sa
               name: adoption-profiling-sa
             type: kubernetes.io/service-account-token
-            EOF &&
+            EOT | oc apply -f - &&
             export TOKEN=`oc create token adoption-profiling-sa -n adoption-profiling --as system:serviceaccount:adoption-profiling:token-creator | tr -d '\n'` &&
             export BEARER=`echo -n "Bearer ${TESTING}" | base64 -w 0` &&
             oc patch secret adoption-profiling-sa -p "{\"data\": {\"token\": \"$BEARER\"}}"
