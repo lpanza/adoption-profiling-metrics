@@ -19,15 +19,6 @@ spec:
         args:
         - -c
         - >-
-            #oc apply -f - <<EOF
-            #apiVersion: v1
-            #kind: Secret
-            #metadata:
-            #  annotations:
-            #    kubernetes.io/service-account.name: adoption-profiling-sa
-            #  name: adoption-profiling-sa
-            #type: kubernetes.io/service-account-token
-            #EOF &&
             echo "---
             apiVersion: v1
             kind: Secret
