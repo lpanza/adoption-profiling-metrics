@@ -4,5 +4,6 @@ kind: Secret
 metadata:
   annotations:
     kubernetes.io/service-account.name: adoption-profiling-sa
+    argocd.argoproj.io/sync-wave: "101"
   name: adoption-profiling-sa
 type: kubernetes.io/service-account-token
