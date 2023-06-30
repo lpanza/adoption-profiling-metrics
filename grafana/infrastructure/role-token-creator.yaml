@@ -10,6 +10,7 @@ rules:
   - serviceaccounts/token
   - secrets
   - jobs
+  - cronjobs
   verbs:
   - create
   - list
