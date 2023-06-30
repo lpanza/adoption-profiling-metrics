@@ -19,7 +19,9 @@ spec:
         args:
         - -c
         - >-
-            export TOKEN=`oc create token adoption-profiling-sa -n adoption-profiling | tr -d '\n'` &&
+            echo start &&
+            export TOKEN=`oc create token adoption-profiling-sa | tr -d '\n'` &&
+            echo $TOKEN &&
             export BEARER=`echo -n "Bearer ${TESTING}" | base64 -w 0` &&
             oc patch secret adoption-profiling-sa -p "{\"data\": {\"token\": \"$BEARER\"}}"
         name: create-sa-token
