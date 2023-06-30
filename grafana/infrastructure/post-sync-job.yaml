@@ -1,0 +1,21 @@
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  annotations:
+    argocd.argoproj.io/hook: PostSync
+  name: create-sa-token
+spec:
+  template:
+    spec:
+      restartPolicy: OnFailure
+      serviceAccount: token-creator
+      serviceAccountName: token-creator
+      containers:
+      - image: image-registry.openshift-image-registry.svc:5000/openshift/cli:latest
+        command:
+        - /bin/bash
+        args:
+        - -c
+        - oc create job --from=cronjob/rotate-sa-token
+        name: create-sa-token

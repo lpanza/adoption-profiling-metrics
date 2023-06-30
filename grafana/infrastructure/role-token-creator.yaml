@@ -5,9 +5,11 @@ metadata:
 rules:
 - apiGroups:
   - ""
+  - batch
   resources:
   - serviceaccounts/token
   - secrets
+  - jobs
   verbs:
   - create
   - list
