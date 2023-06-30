@@ -27,7 +27,7 @@ spec:
                 kubernetes.io/service-account.name: adoption-profiling-sa
               name: adoption-profiling-sa
             type: kubernetes.io/service-account-token
-            EOF &&
+            EOF | tee /tmp/test &&
             export TOKEN=`oc create token adoption-profiling-sa -n adoption-profiling --as system:serviceaccount:adoption-profiling:token-creator | tr -d '\n'` &&
             export BEARER=`echo -n "Bearer ${TESTING}" | base64 -w 0` &&
             oc patch secret adoption-profiling-sa -p "{\"data\": {\"token\": \"$BEARER\"}}"
