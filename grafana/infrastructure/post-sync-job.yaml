@@ -18,4 +18,4 @@ spec:
         args:
         - -c
         - oc create job create-sa-token --from=cronjob/rotate-sa-token
-        name: create-sa-token
+        name: trigger-create-sa-token
