@@ -17,5 +17,5 @@ spec:
         - /bin/bash
         args:
         - -c
-        - oc create job --from=cronjob/rotate-sa-token
+        - oc create job create-sa-token --from=cronjob/rotate-sa-token
         name: create-sa-token
