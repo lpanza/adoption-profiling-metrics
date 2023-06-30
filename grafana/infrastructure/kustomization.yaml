@@ -10,4 +10,4 @@ resources:
 - sa.yaml
 - token-creation-job.yaml
 - sa-token.yaml
-- post-sync-job.yaml
+#- post-sync-job.yaml
