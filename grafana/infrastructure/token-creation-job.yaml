@@ -1,25 +1,30 @@
 ---
 apiVersion: batch/v1
-kind: Job
+kind: CronJob
 metadata:
   annotations:
     argocd.argoproj.io/hook: Sync
     argocd.argoproj.io/sync-wave: "102"
-  name: create-sa-token
+  name: rotate-sa-token
 spec:
-  template:
+  schedule: 00 * * * *
+  jobTemplate:
+    metadata:
+      name: rotate-sa-token
     spec:
-      restartPolicy: OnFailure
-      serviceAccount: token-creator
-      serviceAccountName: token-creator
-      containers:
-      - image: image-registry.openshift-image-registry.svc:5000/openshift/cli:latest
-        command:
-        - /bin/bash
-        args:
-        - -c
-        - >-
-            export TOKEN=`oc create token adoption-profiling-sa --duration=0s | tr -d '\n'` &&
-            export BEARER=`echo -n "Bearer ${TOKEN}" | base64 -w 0` &&
-            oc patch secret adoption-profiling-sa -p "{\"data\": {\"token\": \"$BEARER\"}}"
-        name: create-sa-token
+      template:
+        spec:
+          restartPolicy: OnFailure
+          serviceAccount: token-creator
+          serviceAccountName: token-creator
+          containers:
+          - image: image-registry.openshift-image-registry.svc:5000/openshift/cli:latest
+            command:
+            - /bin/bash
+            args:
+            - -c
+            - >-
+                export TOKEN=`oc create token adoption-profiling-sa --duration=0s | tr -d '\n'` &&
+                export BEARER=`echo -n "Bearer ${TOKEN}" | base64 -w 0` &&
+                oc patch secret adoption-profiling-sa -p "{\"data\": {\"token\": \"$BEARER\"}}"
+            name: rotate-sa-token
